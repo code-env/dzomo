@@ -19,9 +19,9 @@ import { mp4ToGif } from "./converters/mp4-gif";
 
 const converters: Record<string, (dir: string) => Promise<void>> = {
   "MP4 to MP3": mp4ToMp3,
-  "WEBM to PNG/JPG": webmToPngJpg,
   "MP4 to GIF": mp4ToGif,
   "PNG to JPG": pngToJpg,
+  "WEBM to PNG/JPG": webmToPngJpg,
 };
 
 async function main() {

@@ -1,203 +1,125 @@
-# Tidyup
+# Dzomo - File Conversion CLI Tool
 
-**tidyup** is a powerful command-line tool that organizes files in a specified directory into categorized subfolders. It offers multiple options to customize the organization process, ensuring your directories remain clean and structured.
+Dzomo is a lightweight, command-line interface (CLI) tool that simplifies file conversion from one format to another directly from your terminal. With Dzomo, you can convert audio, video, and image files effortlessly, supporting various formats such as MP4 to MP3, PNG to JPG, WEBM to PNG/JPG, and MP4 to GIF.
 
----
-
-## Features
-
-- Organizes files into subfolders by:
-  - **File Extensions** (e.g., `mp4`, `pdf`).
-  - **Starting Names** (e.g., `project-a`, `report`).
-  - **Creation Dates** (e.g., `2024-12-24`).
-- Handles file naming conflicts automatically.
-- Provides a detailed summary of the organization process.
-- Compatible with Windows, macOS, and Linux.
+## 🚀 Features
+- 🎶 **MP4 to MP3:** Extract audio from video files.
+- 🖼️ **PNG to JPG:** Convert image files to save space without losing quality.
+- 🎥 **MP4 to GIF:** Create shareable GIFs from video clips.
+- 🌐 **WEBM to PNG/JPG:** Get high-quality static images from video formats.
+- 🛠️ **Simple and Fast:** Lightweight, easy-to-use, and efficient.
 
 ---
 
-## Installation
-
-First, ensure you have Node.js installed on your system.
-
-1. Install `tidyup` globally via npm:
-
-   ```bash
-   npm install -g tidyup
-   ```
-
-2. Verify the installation:
-
-   ```bash
-   tidyup --version
-   ```
-
----
-
-## Usage
-
-Run the `tidyup` command, specifying the directory to organize and the desired options.
+## 📦 Installation
+Ensure you have **Node.js** and **npm** installed on your system.
 
 ```bash
-tidyup [directory] [options]
-```
-
-If no directory is specified, the current directory (`.`) is used by default.
-
-### Options
-
-- `--ext`: Organize files into folders based on their **file extensions**.
-- `--name`: Group files by their **starting names**.
-- `--date`: Group files by their **creation dates**.
-- `--ignore-dotfiles`: Ignore dotfiles when organizing.
-
-> **Note**: Some of these options cannot be used together. For example, you cannot use `--ext` and `--name` simultaneously, but you can use `--ignore-dotfiles` with any one other option.
-
----
-
-## Examples
-
-### Organize by File Extensions
-
-```bash
-tidyup /path/to/directory --ext
-```
-
-Example output:
-
-```
-Organization Summary for '/path/to/directory':
-- Folder: mp4
-  - Created
-  - Files added: 3
-- Folder: pdf
-  - Already existed
-  - Files added: 1
-```
-
-### Group Files by Starting Names
-
-```bash
-tidyup /path/to/directory --name
-```
-
-Example output:
-
-```
-Organization Summary for '/path/to/directory':
-- Folder: project-a
-  - Created
-  - Files added: 4
-- Folder: report
-  - Already existed
-  - Files added: 2
-```
-
-### Organize by Creation Dates
-
-```bash
-tidyup /path/to/directory --date
-```
-
-Example output:
-
-```
-Organization Summary for '/path/to/directory':
-- Folder: 2024-12-23
-  - Created
-  - Files added: 2
-- Folder: 2024-12-24
-  - Already existed
-  - Files added: 3
-```
-
-### Organize by Name and Ignore Dotfiles
-```bash
-tidyup /path/to/directory --name --ignore-dotfiles
-```
-
-Example output:
-
-```
-Organization Summary for '/path/to/directory':
-- Folder: project-a
-  - Created
-  - Files added: 4
-- Folder: report
-  - Already existed
-  - Files added: 2
-```
-
-### Invalid Option Combination
-
-```bash
-tidyup /path/to/directory --ext --name
-```
-
-Error output:
-
-```
-The --ext, --name, and --date options cannot be used together.
+npm install -g dzomo
 ```
 
 ---
 
-## Development
+## 📚 Usage
+Run Dzomo from your terminal to convert files in your current directory.
+
+### 1. Basic Command:
+```bash
+dzomo
+```
+
+### 2. Selecting a Directory:
+```bash
+dzomo [directory]
+```
+
+Dzomo will list the available files in the selected directory and allow you to choose the conversion type.
+
+### 3. Supported Conversions:
+- **MP4 to MP3**
+- **PNG to JPG**
+- **WEBM to PNG/JPG**
+- **MP4 to GIF**
+
+---
+
+## ⚙️ How It Works
+1. **Run Dzomo** from your terminal.
+2. **Select the file(s)** you want to convert.
+3. **Choose the conversion type** from the provided list.
+4. Dzomo handles the rest! 🎉
+
+---
+
+## 📄 Example
+### Convert all MP4 files in the current directory to MP3:
+```bash
+dzomo
+```
+Output:
+```bash
+📂 Using directory: /home/user/videos
+✔ Select a file to convert › example.mp4
+🎶 Converting example.mp4 to /home/user/videos/example.mp3...
+🎉 Conversion complete!
+```
+
+---
+
+## 🔧 Development
+If you want to contribute or modify Dzomo:
 
 1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/code-env/tidyup.git
+ ```bash
+git clone https://github.com/code-env/dzomo.git
    ```
 
-2. Navigate to the project directory:
-
-   ```bash
-   cd tidyup
+2. Navigate to the project folder:
+ ```bash
+cd dzomo
    ```
-
 3. Install dependencies:
-
-   ```bash
-   npm install
+  ```bash
+pnpm install
    ```
-
-4. Build the project:
-
-   ```bash
-   npm run build
-   ```
-
-5. Test locally:
-
-   ```bash
-   node ./dist/index.js <directory> [options]
+4. Run the tool locally:
+```bash
+pnpm start
    ```
 
 ---
 
-## Contributing
-
-We welcome contributions! To contribute:
+## 🧪 Contributing
+Contributions are welcome! Feel free to open issues or submit pull requests to improve Dzomo.
 
 1. Fork the repository.
-2. Create a new branch for your feature or bug fix.
-3. Submit a pull request with your changes.
+2. Create your feature branch:
+  ```bashA
+git checkout -b feature/new-feature
+   ```
+3. Commit your changes:
+ ```bash
+git commit -m 'Add new feature'
+   ```
+4. Push to the branch:
+  ```bash
+git push origin feature/new-feature
+```
 
----
+5. Open a pull request.
 
-## License
+After your pull request is merged, you can safely delete your branch.
 
-This project is licensed under the **ISC License**. See the LICENSE file for more details.
+## 📝 License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
----
 
-## Author
+## 🌟 Acknowledgements
+- Built with ❤️ by [Bossadi Zenith.](https://x.com/bossadizenith)
+- Inspired by the need for a simple and efficient file conversion tool for developers.
 
-**tidyup** is developed and maintained by [Bossadi Zenith](https://github.com/code-env).
 
----
-
-Happy organizing! 🎉
-
-Let me know if this aligns with your requirements or needs further customization.
+## 📧 Contact
+For any questions or feedback, feel free to reach out via:
+- **GitHub:** [https://github.com/code-env](https://github.com/code-env)
+- **Email:** hello@bossadizenith.com

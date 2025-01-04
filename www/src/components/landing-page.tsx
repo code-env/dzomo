@@ -50,7 +50,7 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="flex justify-start w-full mt-20">
-          <p className="flex items-center gap-2">  <ArrowRight className="size-4" />cleanup your directory with  <a
+          <p className="flex items-center gap-2">  <ArrowRight className="size-4" />Cleanup your directory with  <a
             href="https://tidyup.bossadizenith.me/"
             target="_blank"
             rel="noreferrer"
