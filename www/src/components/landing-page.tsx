@@ -2,6 +2,7 @@ import { AnimatePresence, motion, MotionConfig } from "motion/react";
 import { useCallback, useState } from "react";
 import { Demo } from "./demo";
 import { Button } from "./ui/button";
+import { ArrowDownRight, ArrowRight } from "lucide-react";
 
 const LandingPage = () => {
   return (
@@ -47,6 +48,16 @@ const LandingPage = () => {
             <h2 className="text-xl font-semibold">Usage</h2>
             <Demo />
           </div>
+        </div>
+        <div className="flex justify-start w-full mt-20">
+          <p className="flex items-center gap-2">  <ArrowRight className="size-4" />cleanup your directory with  <a
+            href="https://tidyup.bossadizenith.me/"
+            target="_blank"
+            rel="noreferrer"
+            className="font-bold"
+          >
+            tidyup
+          </a></p>
         </div>
       </div>
     </div>
@@ -132,4 +143,4 @@ const Installation = () => {
   );
 };
 
-export default LandingPage;
+export default LandingPage
