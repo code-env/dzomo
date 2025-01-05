@@ -10,6 +10,7 @@ import { mp4ToMp3 } from "./converters/mp4-mp3";
 import { pngToJpg } from "./converters/png-jpg";
 import { webmToPngJpg } from "./converters/webm-png-jpg";
 import { mp4ToGif } from "./converters/mp4-gif";
+import { avifToPng } from "./converters/avif-png";
 
 /*
   This is the main entry point for the CLI application. The application is responsible for converting files from one format to another.
@@ -21,6 +22,7 @@ const converters: Record<string, (dir: string) => Promise<void>> = {
   "MP4 to MP3": mp4ToMp3,
   "MP4 to GIF": mp4ToGif,
   "PNG to JPG": pngToJpg,
+  "AVIF to PNG": avifToPng,
   "WEBM to PNG/JPG": webmToPngJpg,
 };
 
