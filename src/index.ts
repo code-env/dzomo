@@ -11,6 +11,7 @@ import { pngToJpg } from "./converters/png-jpg";
 import { webmToPngJpg } from "./converters/webm-png-jpg";
 import { mp4ToGif } from "./converters/mp4-gif";
 import { avifToPng } from "./converters/avif-png";
+import { webpToPng } from "./converters/webp-png";
 
 /*
   This is the main entry point for the CLI application. The application is responsible for converting files from one format to another.
@@ -24,6 +25,7 @@ const converters: Record<string, (dir: string) => Promise<void>> = {
   "PNG to JPG": pngToJpg,
   "AVIF to PNG": avifToPng,
   "WEBM to PNG/JPG": webmToPngJpg,
+  "WEBP to PNG": webpToPng,
 };
 
 async function main() {
@@ -31,19 +33,15 @@ async function main() {
     .name("dzomo")
     .description("Convert your files from one format to another.")
     .argument("[directory]", "Directory to convert files from", ".")
-    .version(
-      version || "0.0.1",
-      "-v, --version",
-      "Display the version number"
-    )
+    .version(version || "0.0.1", "-v, --version", "Display the version number")
     .action(async (inputDir: string) => {
       const dirPath = path.resolve(inputDir);
 
-
-
       try {
         if (!fs.existsSync(dirPath) || !fs.lstatSync(dirPath).isDirectory()) {
-          console.error("❌ Invalid directory path. Please provide a valid directory.");
+          console.error(
+            "❌ Invalid directory path. Please provide a valid directory."
+          );
           process.exit(1);
         }
 
@@ -53,7 +51,10 @@ async function main() {
           type: "select",
           name: "conversionType",
           message: "Choose the type of conversion you want to perform:",
-          choices: Object.keys(converters).map(type => ({ title: type, value: type })),
+          choices: Object.keys(converters).map((type) => ({
+            title: type,
+            value: type,
+          })),
         });
 
         const converter = converters[conversionType];
@@ -64,11 +65,12 @@ async function main() {
         }
 
         await converter(dirPath);
-
       } catch (error: any) {
         console.error("❌ An error occurred:", error.message);
         process.exit(1);
       }
+
+      // Prompt user to select the files to convert
     });
 
   program.parse();
